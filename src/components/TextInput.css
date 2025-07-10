@@ -1,0 +1,9 @@
+.text-input-field {
+  padding: 0 10px;
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
+  font-family: var(--primary-font);
+  color: var(--text-color);
+  margin-top: 5px;
+}

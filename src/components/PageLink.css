@@ -1,0 +1,8 @@
+button#page-link {
+  color: var(--secondary-text-color);
+  transition: filter var(--transition-duration);
+}
+
+button#page-link:hover {
+  filter: brightness(0.75);
+}

@@ -1,0 +1,27 @@
+button.primary-button {
+  border: var(--border-width-large) solid var(--line-color);
+  border-radius: var(--border-radius-circular);
+  padding: 5px 20px;
+  transition: filter var(--transition-duration);
+}
+
+button.primary-button:hover {
+  filter: brightness(0.75);
+}
+
+button.secondary-button {
+  border: var(--border-width-large) solid var(--line-color);
+  border-radius: var(--border-radius-circular);
+  padding: 5px 20px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  transition: filter var(--transition-duration);
+}
+
+button.secondary-button h5 {
+  font-weight: 600;
+}
+
+button.secondary-button:hover {
+  filter: brightness(0.75);
+}

@@ -1,0 +1,31 @@
+.scrollable-gallery {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.scrollable-gallery h3 {
+  margin-left: var(--padding-large);
+}
+
+.scrollable-gallery-content {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-medium);
+  overflow-x: auto;
+  margin-top: var(--padding-medium);
+  padding: 0px var(--padding-large);
+
+  /* Hide scrollbar for Webkit browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.scrollable-gallery-content::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-gallery-content img {
+  width: 600px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+}

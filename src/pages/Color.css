@@ -1,0 +1,25 @@
+#color h1 {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--padding-large);
+}
+
+#color-sliders {
+  width: 100%;
+  padding: var(--padding-large);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#color .card {
+  margin: var(--padding-large);
+  margin-top: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--padding-medium);
+  padding: var(--padding-large);
+}

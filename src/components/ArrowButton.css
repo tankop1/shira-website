@@ -1,0 +1,18 @@
+.arrow-button {
+  border: var(--border-width-large) solid var(--line-color);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-circular);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.arrow-button img.left {
+  transform: rotate(180deg);
+}

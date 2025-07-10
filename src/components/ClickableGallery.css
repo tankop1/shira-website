@@ -1,0 +1,35 @@
+.clickable-gallery {
+  position: relative;
+}
+
+.clickable-gallery-buttons {
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-medium);
+}
+
+.clickable-gallery-content {
+  display: flex;
+  gap: var(--padding-large);
+  overflow-x: scroll;
+  padding: var(--padding-large) calc(600px + var(--padding-large));
+
+  /* Hide scrollbar for Webkit browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollable-gallery-content::-webkit-scrollbar {
+  display: none;
+}
+
+.clickable-gallery-item img {
+  width: 600px;
+  height: 750px;
+  object-fit: cover;
+  border-radius: var(--border-radius-large);
+}
