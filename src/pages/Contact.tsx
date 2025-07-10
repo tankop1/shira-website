@@ -35,6 +35,8 @@ function Contact() {
     }
   };
 
+  console.log(result);
+
   return (
     <main id="contact">
       <div id="contact-left">
