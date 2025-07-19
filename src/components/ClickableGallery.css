@@ -10,12 +10,13 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--padding-medium);
+  z-index: 2; /* Ensure buttons are above images */
 }
 
 .clickable-gallery-content {
   display: flex;
   gap: var(--padding-large);
-  overflow-x: scroll;
+  overflow-x: hidden;
   padding: var(--padding-large) calc(600px + var(--padding-large));
 
   /* Hide scrollbar for Webkit browsers */

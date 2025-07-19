@@ -10,6 +10,7 @@
   --secondary-text-color: rgba(255, 255, 255, 0.65);
   --card-color: rgba(255, 255, 255, 0.1);
   --line-color: #ffffff;
+  --light-line-color: rgba(255, 255, 255, 0.2);
 
   --border-radius-circular: 100px;
   --border-radius-large: 35px;
@@ -40,6 +41,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   width: 100%;
+  overflow-y: scroll;
 }
 
 h1 {

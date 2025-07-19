@@ -7,9 +7,53 @@
   height: calc(100vh - var(--header-height));
 }
 
-#home video {
+#home-gallery {
   width: 100%;
   height: 100%;
   border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+
+#home-gallery-items {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#home video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+#home-gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+#home-gallery-text {
+  padding: var(--padding-large);
+}
+
+#home-gallery-text h6 {
+  margin-top: 10px;
+}
+
+#home-gallery-buttons {
+  padding: var(--padding-large);
+  display: flex;
+  align-items: center;
+  gap: var(--padding-medium);
 }

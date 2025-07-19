@@ -1,6 +1,7 @@
 import "./About.css";
 import ShiraImage from "../assets/Shira Beach Photo.jpg";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -35,8 +36,12 @@ function About() {
           <div className="card">
             <h3>Interested in working with Shira?</h3>
             <div className="card-buttons">
-              <Button secondary>Contact Me</Button>
-              <Button>See My Work</Button>
+              <Link to="/contact">
+                <Button secondary>Contact Me</Button>
+              </Link>
+              <Link to="/color">
+                <Button>See My Work</Button>
+              </Link>
             </div>
           </div>
         </div>

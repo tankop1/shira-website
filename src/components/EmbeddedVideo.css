@@ -1,0 +1,10 @@
+.embedded-video {
+  flex-shrink: 0;
+  margin: var(--padding-medium) 0;
+}
+
+.embedded-video-content {
+  margin-top: var(--padding-medium);
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}

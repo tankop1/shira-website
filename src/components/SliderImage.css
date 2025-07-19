@@ -1,7 +1,7 @@
 .slider-image {
   flex-shrink: 0;
   min-width: 600px;
-  margin: var(--padding-medium);
+  margin: var(--padding-medium) 0;
 }
 
 .slider-image-content {
@@ -11,6 +11,7 @@
   height: 350px;
   max-width: 600px;
   margin-top: var(--padding-medium);
+  border-radius: var(--border-radius-large);
 }
 
 .slider-image-before,

@@ -1,14 +1,13 @@
 #about {
   width: 100%;
   padding: var(--padding-large);
-  padding-top: 0px;
 }
 
 #about-top {
   display: flex;
   width: 100%;
   height: 100%;
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height) - var(--padding-large));
   padding-bottom: var(--padding-large);
 }
 

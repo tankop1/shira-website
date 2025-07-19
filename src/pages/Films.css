@@ -21,3 +21,22 @@
   gap: var(--padding-medium);
   padding: var(--padding-large);
 }
+
+.film-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.film-card h2 {
+  margin-top: var(--padding-medium);
+}
+
+.film-card h4 {
+  margin-top: 2px;
+}
+
+.film-card p {
+  margin-top: 10px;
+}
