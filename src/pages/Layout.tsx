@@ -4,12 +4,13 @@ import PageLink from "../components/PageLink";
 
 import Logo from "../assets/Shira Logo.png";
 import Button from "../components/Button";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Layout() {
   const location = useLocation();
   const lastScrollY = useRef(window.scrollY);
   const headerRef = useRef<HTMLHeadElement | null>(null);
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,11 @@ function Layout() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close nav menu on route change (mobile)
+  useEffect(() => {
+    setNavOpen(false);
+  }, [location.pathname]);
 
   return (
     <div id="layout">
@@ -55,30 +61,66 @@ function Layout() {
           </div>
         </Link>
 
-        <nav>
-          <ul>
-            <li>
-              <PageLink path="/about" focused={location.pathname === "/about"}>
-                About
-              </PageLink>
-            </li>
-            <li>
-              <PageLink path="/color" focused={location.pathname === "/color"}>
-                Color
-              </PageLink>
-            </li>
-            <li>
-              <PageLink path="/films" focused={location.pathname === "/films"}>
-                Films
-              </PageLink>
-            </li>
-            <li>
-              <Link to="/contact">
-                <Button>Contact</Button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="header-right">
+          <div
+            className="hamburger"
+            onClick={() => setNavOpen((open) => !open)}
+            tabIndex={0}
+            role="button"
+            style={{
+              outline: "none",
+              transform: navOpen ? "translateX(10px)" : "none",
+            }}
+          >
+            <span
+              style={{
+                transform: navOpen ? "rotate(45deg) translateY(15px)" : "none",
+              }}
+            ></span>
+            <span style={{ opacity: navOpen ? 0 : 1 }}></span>
+            <span
+              style={{
+                transform: navOpen
+                  ? "rotate(-45deg) translateY(-15px)"
+                  : "none",
+              }}
+            ></span>
+          </div>
+
+          <nav>
+            <ul className={navOpen ? "open" : ""}>
+              <li>
+                <PageLink
+                  path="/about"
+                  focused={location.pathname === "/about"}
+                >
+                  About
+                </PageLink>
+              </li>
+              <li>
+                <PageLink
+                  path="/color"
+                  focused={location.pathname === "/color"}
+                >
+                  Color
+                </PageLink>
+              </li>
+              <li>
+                <PageLink
+                  path="/films"
+                  focused={location.pathname === "/films"}
+                >
+                  Films
+                </PageLink>
+              </li>
+              <li>
+                <Link to="/contact">
+                  <Button>Contact</Button>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
 
       <div id="header-placeholder"></div>

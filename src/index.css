@@ -34,6 +34,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --padding-large: 25px;
+    --padding-medium: 10px;
+    --header-height: 90px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
