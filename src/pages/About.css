@@ -1,3 +1,34 @@
+@media (max-width: 500px) {
+  #about-top-text .card-buttons {
+    flex-direction: column;
+    gap: var(--padding-medium);
+    align-items: stretch;
+  }
+
+  #about-bottom .primary-button {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  #about-top-text h1 {
+    font-size: 1.5rem;
+  }
+  #about-top-text h4 {
+    font-size: 0.85rem;
+  }
+  #about-top-text h3 {
+    font-size: 1.1rem;
+  }
+  #about-bottom h5 {
+    font-size: 1rem;
+  }
+  #about-bottom,
+  #about-bottom p,
+  #about-bottom i {
+    font-size: 0.65rem;
+  }
+}
+
 #about {
   width: 100%;
   padding: var(--padding-large);
@@ -6,14 +37,14 @@
 #about-top {
   display: flex;
   width: 100%;
-  height: 100%;
-  height: calc(100vh - var(--header-height) - var(--padding-large));
+  /* Removed fixed height to allow content to determine height */
   padding-bottom: var(--padding-large);
+  align-items: stretch;
 }
 
 #about-top img {
   width: 40%;
-  height: 100%;
+  flex: 1;
   border-radius: var(--border-radius-large);
   object-fit: cover;
 }
@@ -37,9 +68,33 @@
   align-items: center;
   justify-content: center;
   gap: var(--padding-medium);
+  text-align: center;
 }
 
 #about-bottom {
   margin-top: var(--padding-large);
   position: relative;
+}
+
+@media (max-width: 950px) {
+  #about-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #about-top img {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--padding-large);
+    max-height: 400px;
+  }
+  #about-top-text {
+    margin-left: 0;
+    height: auto;
+  }
+  #about-top-text .card {
+    padding: var(--padding-large);
+  }
+  #about-bottom {
+    padding: var(--padding-large);
+  }
 }

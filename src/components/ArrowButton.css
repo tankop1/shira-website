@@ -16,3 +16,14 @@
 .arrow-button img.left {
   transform: rotate(180deg);
 }
+
+@media (max-width: 500px) {
+  .arrow-button {
+    width: 30px;
+    height: 30px;
+  }
+  .arrow-button img {
+    width: 15px;
+    height: 15px;
+  }
+}
