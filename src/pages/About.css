@@ -93,6 +93,7 @@
   }
   #about-top-text .card {
     padding: var(--padding-large);
+    gap: var(--padding-large);
   }
   #about-bottom {
     padding: var(--padding-large);

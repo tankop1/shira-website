@@ -1,3 +1,57 @@
+@media (max-width: 500px) {
+  #color .scrollable-gallery img {
+    width: 350px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+@media (max-width: 500px) {
+  #color .card-buttons {
+    flex-direction: column;
+    gap: var(--padding-medium);
+    align-items: stretch;
+  }
+}
+@media (max-width: 750px) {
+  #color h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--padding-large);
+  }
+  #color h4 {
+    font-size: 0.85rem;
+  }
+  #color h3 {
+    font-size: 1.1rem;
+  }
+  #color h5 {
+    font-size: 1rem;
+  }
+  #color,
+  #color p,
+  #color i {
+    font-size: 0.65rem;
+  }
+
+  /* Make slider images and embedded videos full width minus padding */
+  #color-sliders > *,
+  #color-videos > * {
+    width: calc(100vw - 2 * var(--padding-large));
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  #color-videos iframe {
+    width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  #color .card {
+    gap: var(--padding-large) !important;
+  }
+}
+
 #color h1 {
   width: 100%;
   text-align: center;
@@ -33,4 +87,5 @@
   justify-content: center;
   gap: var(--padding-medium);
   padding: var(--padding-large);
+  text-align: center;
 }
