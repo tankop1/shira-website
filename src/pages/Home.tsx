@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Home.css";
-import ColorReel from "../assets/Color Reel.mp4";
+import ColorReel from "../assets/Color Reel (Compressed).mp4";
 import ArrowButton from "../components/ArrowButton";
 import Still1 from "../assets/placeholder_stills/HolyGrave_1_1.4.1.jpg";
 
