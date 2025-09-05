@@ -1,3 +1,53 @@
+@media (max-width: 800px) {
+  #films h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--padding-large);
+  }
+  #films h4 {
+    font-size: 0.85rem;
+  }
+  #films h3 {
+    font-size: 1.1rem;
+  }
+  #films h5 {
+    font-size: 1rem;
+  }
+  #films,
+  #films p,
+  #films i {
+    font-size: 0.65rem;
+  }
+
+  #disclaimer {
+    line-height: 0.75rem;
+  }
+
+  #films .card {
+    margin-top: var(--padding-large);
+    gap: var(--padding-large) !important;
+  }
+
+  #films .clickable-gallery .film-card img {
+    width: 450px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 500px) {
+  #films .card-buttons {
+    flex-direction: column;
+    gap: var(--padding-medium);
+    align-items: stretch;
+  }
+
+  #films .clickable-gallery .film-card img {
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 #films h1 {
   width: 100%;
   text-align: center;
@@ -8,6 +58,7 @@
   width: 100%;
   text-align: center;
   margin-top: var(--padding-large);
+  padding: 0px var(--padding-large);
 }
 
 #films .card {
@@ -20,6 +71,7 @@
   justify-content: center;
   gap: var(--padding-medium);
   padding: var(--padding-large);
+  text-align: center;
 }
 
 .film-card {
