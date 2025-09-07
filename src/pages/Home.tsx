@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Home.css";
 import ColorReel from "../assets/Color Reel (Compressed).mp4";
 import ArrowButton from "../components/ArrowButton";
-import Still1 from "../assets/placeholder_stills/HolyGrave_1_1.4.1.jpg";
 import DigitalDiaryStill from "../assets/home_stills/DigitalDiary_Still12_1.119.1.jpg";
 import WakaStill from "../assets/home_stills/Waka_1.400.1.jpg";
 import StardustStill from "../assets/home_stills/Stardust_Still_3_1.5.1.png";
