@@ -3,8 +3,7 @@ import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import TextArea from "../components/TextArea";
 
-import Still1 from "../assets/placeholder_stills/HolyGrave_1_1.4.1.jpg";
-import FacebookIcon from "../assets/icons/Facebook.png";
+import Still1 from "../assets/color_stills/ToGive_Still_1_1.1.1.jpg";
 import InstagramIcon from "../assets/icons/Instagram.png";
 import LinkedInIcon from "../assets/icons/LinkedIn.png";
 import { useState } from "react";
@@ -17,7 +16,7 @@ function Contact() {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("access_key", "6801792c-ecf2-4d5c-8f43-176ca9f97dd9");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -60,15 +59,19 @@ function Contact() {
 
         <div id="contact-left-bottom">
           <div id="contact-socials">
-            <a className="contact-social-button">
-              <img src={FacebookIcon} alt="Facebook Icon" />
-            </a>
-
-            <a className="contact-social-button">
+            <a
+              className="contact-social-button"
+              href="https://www.instagram.com/shirathecolorist"
+              target="_blank"
+            >
               <img src={InstagramIcon} alt="Instagram Icon" />
             </a>
 
-            <a className="contact-social-button">
+            <a
+              className="contact-social-button"
+              href="https://www.linkedin.com/in/shira-chait-914b61149/"
+              target="_blank"
+            >
               <img src={LinkedInIcon} alt="LinkedIn Icon" />
             </a>
           </div>
@@ -84,8 +87,8 @@ function Contact() {
 
         <div id="contact-right-overlay">
           <div id="contact-right-text">
-            <h3>Holy Grave (Colorist)</h3>
-            <h6>Directed by Name Here</h6>
+            <h3>To Give (Colorist)</h3>
+            <h6>Directed by Crayton Gerst</h6>
           </div>
         </div>
       </div>

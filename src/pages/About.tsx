@@ -1,6 +1,7 @@
 import "./About.css";
 import ShiraImage from "../assets/Shira Beach Photo.jpg";
 import Button from "../components/Button";
+import ShiraCV from "../assets/ShiraChait_Resume_UpdatedProfes_Sept2025.pdf";
 import { Link } from "react-router-dom";
 
 function About() {
@@ -48,15 +49,18 @@ function About() {
       </div>
 
       <div id="about-bottom" className="card">
-        <Button
+        <a
+          href={ShiraCV}
+          download="ShiraChait_Resume_UpdatedProfes_Sept2025.pdf"
           style={{
             position: "absolute",
             top: "var(--padding-medium)",
             right: "var(--padding-medium)",
+            textDecoration: "none",
           }}
         >
-          Download Full CV
-        </Button>
+          <Button>Download Full CV</Button>
+        </a>
         <p>
           <h5>Short Films:</h5>
           <br />

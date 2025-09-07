@@ -3,13 +3,42 @@ import "./Home.css";
 import ColorReel from "../assets/Color Reel (Compressed).mp4";
 import ArrowButton from "../components/ArrowButton";
 import Still1 from "../assets/placeholder_stills/HolyGrave_1_1.4.1.jpg";
+import DigitalDiaryStill from "../assets/home_stills/DigitalDiary_Still12_1.119.1.jpg";
+import WakaStill from "../assets/home_stills/Waka_1.400.1.jpg";
+import StardustStill from "../assets/home_stills/Stardust_Still_3_1.5.1.png";
+import GrinStill from "../assets/home_stills/Grin_1.68.1.jpg";
 
 const galleryItems = [
-  { type: "video", src: ColorReel },
-  { type: "image", src: Still1 },
-  { type: "image", src: Still1 },
-  { type: "image", src: Still1 },
-  { type: "image", src: Still1 },
+  {
+    type: "video",
+    src: ColorReel,
+    title: "",
+    description: "",
+  },
+  {
+    type: "image",
+    src: DigitalDiaryStill,
+    title: "Digital Diary",
+    description: "Yasmin Scheft",
+  },
+  {
+    type: "image",
+    src: GrinStill,
+    title: "Grin",
+    description: "Directed by Camilo Montoya",
+  },
+  {
+    type: "image",
+    src: WakaStill,
+    title: "Operation Wakaliga",
+    description: "Directed by Nabwanal G.G.",
+  },
+  {
+    type: "image",
+    src: StardustStill,
+    title: "Stardust",
+    description: "Directed by Christian Meola",
+  },
 ];
 
 function Home() {
@@ -71,8 +100,8 @@ function Home() {
 
         <div id="home-gallery-overlay">
           <div id="home-gallery-text">
-            <h1>Color Reel</h1>
-            <h4>Created by Shira Chait</h4>
+            <h1>{galleryItems[current].title}</h1>
+            <h4>{galleryItems[current].description}</h4>
           </div>
 
           <div id="home-gallery-buttons">

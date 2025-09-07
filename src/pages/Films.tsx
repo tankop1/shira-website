@@ -4,6 +4,12 @@ import "./Films.css";
 import Poster1 from "../assets/Shira Beach Photo.jpg";
 import { Link } from "react-router-dom";
 
+import HalfPastSevenPoster from "../assets/film_posters/half past seven poster.png";
+import IDreamAtNightPoster from "../assets/film_posters/I Dream at Night Poster with Laurels.jpg";
+import SafeSpacePoster from "../assets/film_posters/SafeSpace.png";
+import SixPiecesPoster from "../assets/film_posters/SixPieces_Poster_WithFestival.png";
+import TheDayAfterPoster from "../assets/film_posters/TheDayAfter_Poster_Laurels_Updated.png";
+
 function Films() {
   return (
     <main id="films">
@@ -11,32 +17,32 @@ function Films() {
 
       <ClickableGallery style={{ marginTop: "var(--padding-large)" }}>
         <div className="film-card">
-          <img src={Poster1} />
-          <h2>Movie Title</h2>
+          <img src={HalfPastSevenPoster} />
+          <h2>Half Past Seven</h2>
           <h4>Genre - Runtime</h4>
           <p>Quick log line or description of the movie</p>
         </div>
         <div className="film-card">
-          <img src={Poster1} />
-          <h2>Movie Title</h2>
+          <img src={IDreamAtNightPoster} />
+          <h2>I Dream At Night</h2>
           <h4>Genre - Runtime</h4>
           <p>Quick log line or description of the movie</p>
         </div>
         <div className="film-card">
-          <img src={Poster1} />
-          <h2>Movie Title</h2>
+          <img src={SafeSpacePoster} />
+          <h2>Safe Space</h2>
           <h4>Genre - Runtime</h4>
           <p>Quick log line or description of the movie</p>
         </div>
         <div className="film-card">
-          <img src={Poster1} />
-          <h2>Movie Title</h2>
+          <img src={SixPiecesPoster} />
+          <h2>Six Pieces</h2>
           <h4>Genre - Runtime</h4>
           <p>Quick log line or description of the movie</p>
         </div>
         <div className="film-card">
-          <img src={Poster1} />
-          <h2>Movie Title</h2>
+          <img src={TheDayAfterPoster} />
+          <h2>The Day After</h2>
           <h4>Genre - Runtime</h4>
           <p>Quick log line or description of the movie</p>
         </div>
