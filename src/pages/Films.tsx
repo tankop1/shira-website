@@ -1,7 +1,6 @@
 import Button from "../components/Button";
 import ClickableGallery from "../components/ClickableGallery";
 import "./Films.css";
-import Poster1 from "../assets/Shira Beach Photo.jpg";
 import { Link } from "react-router-dom";
 
 import HalfPastSevenPoster from "../assets/film_posters/half past seven poster.png";
