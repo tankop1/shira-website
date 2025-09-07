@@ -16,7 +16,8 @@ function Contact() {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "6801792c-ecf2-4d5c-8f43-176ca9f97dd9");
+    formData.append("access_key", "8002606a-82c9-48f5-91df-07aaa60867f5");
+    //6801792c-ecf2-4d5c-8f43-176ca9f97dd9
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -27,10 +28,12 @@ function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
+      console.log("Success", data);
       event.target.reset();
     } else {
       console.log("Error", data);
       setResult(data.message);
+      console.log(data.message);
     }
   };
 
@@ -42,16 +45,26 @@ function Contact() {
         <h1>Contact</h1>
 
         <form onSubmit={onSubmit}>
-          <TextInput required>Full Name</TextInput>
-          <TextInput style={{ marginTop: "var(--padding-medium)" }} required>
+          <TextInput name="full-name" required>
+            Full Name
+          </TextInput>
+          <TextInput
+            name="email"
+            style={{ marginTop: "var(--padding-medium)" }}
+            required
+          >
             Email
           </TextInput>
-          <TextArea style={{ marginTop: "var(--padding-medium)" }} required>
+          <TextArea
+            name="message"
+            style={{ marginTop: "var(--padding-medium)" }}
+            required
+          >
             Message
           </TextArea>
 
           <div id="contact-form-button">
-            <Button style={{ marginTop: "var(--padding-medium)" }}>
+            <Button style={{ marginTop: "var(--padding-medium)" }} isSubmit>
               Send Message
             </Button>
           </div>

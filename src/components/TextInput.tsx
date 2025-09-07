@@ -1,6 +1,7 @@
 import "./TextInput.css";
 
 type TextInputProps = {
+  name?: string;
   children: React.ReactNode;
   placeholder?: string;
   style?: React.CSSProperties;
@@ -8,6 +9,7 @@ type TextInputProps = {
 };
 
 function TextInput({
+  name,
   children,
   placeholder,
   style,
@@ -17,6 +19,7 @@ function TextInput({
     <div className="text-input" style={style}>
       <h6>{children}</h6>
       <input
+        name={name}
         type="text"
         className="text-input-field card"
         placeholder={placeholder || ""}
