@@ -26,6 +26,20 @@ import ScratchStill4 from "../assets/color_stills/Scratch/Scratch_Still9_1.192.1
 import ScratchStill5 from "../assets/color_stills/Scratch/Scratch_Still11_3.1.2.jpg";
 import ScratchStill6 from "../assets/color_stills/Scratch/Scratch_Still12_3.1.3.jpg";
 
+import BlockStill1 from "../assets/color_stills/See You Round The Block/Bloack_Still_3_1.6.2.jpg";
+import BlockStill2 from "../assets/color_stills/See You Round The Block/Bloack_Still_6_1.14.1.jpg";
+import BlockStill3 from "../assets/color_stills/See You Round The Block/Bloack_Still_9_1.22.2.jpg";
+import BlockStill4 from "../assets/color_stills/See You Round The Block/Bloack_Still_10_1.23.1.jpg";
+import BlockStill5 from "../assets/color_stills/See You Round The Block/Bloack_Still_13_1.36.1.jpg";
+import BlockStill6 from "../assets/color_stills/See You Round The Block/Bloack_Still_15_2.18.1.jpg";
+
+import WiCyahStill1 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_2_1.3.1.jpg";
+import WiCyahStill2 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_15_1.22.1.jpg";
+import WiCyahStill3 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_17_1.24.1.jpg";
+import WiCyahStill4 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_27_1.42.1.jpg";
+import WiCyahStill5 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_33_1.48.1.jpg";
+import WiCyahStill6 from "../assets/color_stills/Wi Cyah Stay/WCS_Still_38_1.54.1.jpg";
+
 import BeforeStill1 from "../assets/before_after_stills/Before_1.68.1.png";
 import AfterStill1 from "../assets/before_after_stills/After_1.68.2.png";
 import BeforeStill2 from "../assets/before_after_stills/Anat_Before_4_1.103.2.jpg";
@@ -75,6 +89,34 @@ function Color() {
         <img src={ScratchStill5} alt="Gallery Image" />
         <img src={ScratchStill6} alt="Gallery Image" />
       </ScrollableGallery>
+
+      <ScrollableGallery
+        title="See You Round The Block - Daniel Gat"
+        style={{ marginTop: "var(--padding-medium)" }}
+      >
+        <img src={BlockStill1} alt="Gallery Image" />
+        <img src={BlockStill2} alt="Gallery Image" />
+        <img src={BlockStill3} alt="Gallery Image" />
+        <img src={BlockStill4} alt="Gallery Image" />
+        <img src={BlockStill5} alt="Gallery Image" />
+        <img src={BlockStill6} alt="Gallery Image" />
+      </ScrollableGallery>
+
+      <ScrollableGallery
+        title="Wi Cyah Stay - Nordia Hunt"
+        style={{ marginTop: "var(--padding-medium)" }}
+      >
+        <img src={WiCyahStill6} alt="Gallery Image" />
+        <img src={WiCyahStill2} alt="Gallery Image" />
+        <img src={WiCyahStill3} alt="Gallery Image" />
+        <img src={WiCyahStill4} alt="Gallery Image" />
+        <img src={WiCyahStill5} alt="Gallery Image" />
+        <img src={WiCyahStill1} alt="Gallery Image" />
+      </ScrollableGallery>
+
+      <h1 style={{ marginTop: "calc(var(--padding-large) * 2)" }}>
+        Before & After Stills
+      </h1>
 
       <div id="color-sliders">
         <SliderImage

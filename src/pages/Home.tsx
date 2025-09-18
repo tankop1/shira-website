@@ -6,6 +6,8 @@ import DigitalDiaryStill from "../assets/home_stills/DigitalDiary_Still12_1.119.
 import WakaStill from "../assets/home_stills/Waka_1.400.1.jpg";
 import StardustStill from "../assets/home_stills/Stardust_Still_3_1.5.1.png";
 import GrinStill from "../assets/home_stills/Grin_1.68.1.jpg";
+import ColorsWithinLightStill from "../assets/home_stills/ColorsWithinLight_1.26.1.jpg";
+import VaivenStill from "../assets/home_stills/Vaiven_Still_24_1.97.1.jpg";
 
 const galleryItems = [
   {
@@ -37,6 +39,18 @@ const galleryItems = [
     src: StardustStill,
     title: "Stardust",
     description: "Directed by Christian Meola",
+  },
+  {
+    type: "image",
+    src: ColorsWithinLightStill,
+    title: "Colors Within Light",
+    description: "Directed by Kumar Mayank",
+  },
+  {
+    type: "image",
+    src: VaivenStill,
+    title: "Vaiven",
+    description: "Directed by Lizannette Velasco",
   },
 ];
 

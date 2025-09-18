@@ -54,9 +54,9 @@ function SliderImage({ beforeImg, afterImg, title, style }: SliderImageProps) {
       <h3>{title}</h3>
 
       <div className="slider-image-content" ref={containerRef}>
-        <img src={beforeImg} alt="Before" className="slider-image-before" />
+        <img src={afterImg} alt="Before" className="slider-image-before" />
         <img
-          src={afterImg}
+          src={beforeImg}
           alt="After"
           className="slider-image-after"
           style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
