@@ -1,5 +1,6 @@
 .clickable-gallery {
   position: relative;
+  overflow-x: hidden;
 }
 
 .clickable-gallery-buttons {
@@ -10,46 +11,145 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--padding-medium);
-  z-index: 2; /* Ensure buttons are above images */
+  z-index: 20;
 }
 
-.clickable-gallery-content {
+.custom-gallery-content {
   display: flex;
-  gap: var(--padding-large);
-  overflow: hidden;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: var(--padding-large) 0;
+  width: 150%;
   position: relative;
+  height: 1100px;
+  margin-left: -25%;
+  overflow-x: hidden;
 }
 
-.scrollable-gallery-content::-webkit-scrollbar {
-  display: none;
-}
-
-.clickable-gallery-item img {
+.custom-gallery-item {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.4s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.4s;
   width: 600px;
-  height: 750px;
+  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background-color: var(--background-color);
+}
+
+.custom-gallery-item img {
+  width: calc(100% - 40px);
+  height: 75%;
   object-fit: cover;
   border-radius: var(--border-radius-large);
   display: block;
   margin: 0 auto;
 }
 
+/* Positioning for left, center, right */
+
+.custom-gallery-item.left {
+  left: calc(25% - 300px - var(--padding-large)); /* half off left, spaced */
+  z-index: 1;
+}
+.custom-gallery-item.center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
+}
+.custom-gallery-item.right {
+  left: calc(75% - 300px + var(--padding-large)); /* half off right, spaced */
+  z-index: 1;
+}
+
+/* Animation classes for sliding */
+
+.custom-gallery-content.animating-left .custom-gallery-item.left {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.custom-gallery-content.animating-left .custom-gallery-item.center {
+  left: calc(75% - 300px + var(--padding-large));
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.custom-gallery-content.animating-left .custom-gallery-item.right {
+  left: calc(25% - 300px - var(--padding-large));
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.custom-gallery-content.animating-right .custom-gallery-item.left {
+  left: calc(75% - 300px + var(--padding-large));
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.custom-gallery-content.animating-right .custom-gallery-item.center {
+  left: calc(25% - 300px - var(--padding-large));
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.custom-gallery-content.animating-right .custom-gallery-item.right {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
 @media (max-width: 900px) {
-  .clickable-gallery-item img {
-    width: 350px;
-    height: 440px;
+  .custom-gallery-content {
+    height: 800px;
+  }
+  .custom-gallery-item {
+    width: 500px;
+  }
+  .custom-gallery-item.left {
+    left: calc(25% - 175px - var(--padding-large));
+  }
+  .custom-gallery-item.right {
+    left: calc(75% - 175px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-left .custom-gallery-item.center {
+    left: calc(75% - 175px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-left .custom-gallery-item.right {
+    left: calc(25% - 175px - var(--padding-large));
+  }
+  .custom-gallery-content.animating-right .custom-gallery-item.left {
+    left: calc(75% - 175px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-right .custom-gallery-item.center {
+    left: calc(25% - 175px - var(--padding-large));
   }
 }
 
 @media (max-width: 600px) {
-  .clickable-gallery-item img {
-    width: 180px;
-    height: 230px;
+  .custom-gallery-content {
+    height: 700px;
   }
-  .clickable-gallery-content {
-    gap: var(--padding-medium);
+  .custom-gallery-item {
+    width: 400px;
+  }
+
+  .custom-gallery-item.left {
+    left: calc(25% - 90px - var(--padding-large));
+  }
+  .custom-gallery-item.right {
+    left: calc(75% - 90px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-left .custom-gallery-item.center {
+    left: calc(75% - 90px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-left .custom-gallery-item.right {
+    left: calc(25% - 90px - var(--padding-large));
+  }
+  .custom-gallery-content.animating-right .custom-gallery-item.left {
+    left: calc(75% - 90px + var(--padding-large));
+  }
+  .custom-gallery-content.animating-right .custom-gallery-item.center {
+    left: calc(25% - 90px - var(--padding-large));
   }
 }

@@ -1,4 +1,4 @@
-import React, { Children, useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import "./ClickableGallery.css";
 import ArrowButton from "./ArrowButton";
 
@@ -7,112 +7,70 @@ type ClickableGalleryProps = {
   style?: React.CSSProperties;
 };
 
+function mod(n: number, m: number) {
+  return ((n % m) + m) % m;
+}
+
+const ANIMATION_DURATION = 400; // ms
+
 function ClickableGallery({ children, style }: ClickableGalleryProps) {
-  const items = Children.toArray(children);
-  // Add clones: [last, ...items, first]
-  const extendedItems = [items[items.length - 1], ...items, items[0]];
-  const [currentIndex, setCurrentIndex] = useState(1); // Start at first real item
-  const contentRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const items = React.Children.toArray(children);
   const itemsCount = items.length;
+  const [selected, setSelected] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<"left" | "right" | null>(null);
 
-  const goLeft = () => {
-    if (currentIndex != 0) setCurrentIndex((prev) => prev - 1);
+  // Compute indices for left, center, right
+  const leftIdx = mod(selected - 1, itemsCount);
+  const centerIdx = selected;
+  const rightIdx = mod(selected + 1, itemsCount);
+
+  // Animation trigger
+  const handleArrow = (dir: "left" | "right") => {
+    if (isAnimating) return;
+    setDirection(dir);
+    setIsAnimating(true);
+    setTimeout(() => {
+      setSelected((prev) =>
+        dir === "left" ? mod(prev - 1, itemsCount) : mod(prev + 1, itemsCount)
+      );
+      setIsAnimating(false);
+      setDirection(null);
+    }, ANIMATION_DURATION);
   };
 
-  const goRight = () => {
-    setCurrentIndex((prev) => prev + 1);
-  };
-
-  // Handle infinite jump
-  useEffect(() => {
-    if (currentIndex === 0) {
-      // Jump to last real item
-      setTimeout(() => {
-        setCurrentIndex(itemsCount);
-        const container = contentRef.current;
-        const item = itemRefs.current[itemsCount];
-        if (container && item) {
-          const containerRect = container.getBoundingClientRect();
-          const itemRect = item.getBoundingClientRect();
-          const scrollLeft =
-            item.offsetLeft -
-            container.offsetLeft -
-            (containerRect.width / 2 - itemRect.width / 2);
-          container.scrollTo({ left: scrollLeft, behavior: "auto" });
-        }
-      }, 300); // Wait for smooth scroll to finish
-    } else if (currentIndex === itemsCount + 1) {
-      // Jump to first real item
-      setTimeout(() => {
-        setCurrentIndex(1);
-        const container = contentRef.current;
-        const item = itemRefs.current[1];
-        if (container && item) {
-          const containerRect = container.getBoundingClientRect();
-          const itemRect = item.getBoundingClientRect();
-          const scrollLeft =
-            item.offsetLeft -
-            container.offsetLeft -
-            (containerRect.width / 2 - itemRect.width / 2);
-          container.scrollTo({ left: scrollLeft, behavior: "auto" });
-        }
-      }, 300);
-    } else {
-      // Normal scroll
-      const container = contentRef.current;
-      const item = itemRefs.current[currentIndex];
-      if (container && item) {
-        const containerRect = container.getBoundingClientRect();
-        const itemRect = item.getBoundingClientRect();
-        const scrollLeft =
-          item.offsetLeft -
-          container.offsetLeft -
-          (containerRect.width / 2 - itemRect.width / 2);
-        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
-      }
-    }
-  }, [currentIndex, itemsCount]);
-
-  // Initial scroll to first real item
-  useEffect(() => {
-    const container = contentRef.current;
-    const item = itemRefs.current[1];
-    if (container && item) {
-      const containerRect = container.getBoundingClientRect();
-      const itemRect = item.getBoundingClientRect();
-      const scrollLeft =
-        item.offsetLeft -
-        container.offsetLeft -
-        (containerRect.width / 2 - itemRect.width / 2);
-      container.scrollTo({ left: scrollLeft, behavior: "auto" });
-    }
-  }, [itemsCount]);
+  // For rendering, always show [left, center, right] in order
+  const galleryItems = [
+    { idx: leftIdx, pos: "left" },
+    { idx: centerIdx, pos: "center" },
+    { idx: rightIdx, pos: "right" },
+  ];
 
   return (
     <div className="clickable-gallery" style={style}>
       <div className="clickable-gallery-buttons">
-        <ArrowButton left onClick={goLeft} />
-        <ArrowButton onClick={goRight} />
+        <ArrowButton left onClick={() => handleArrow("left")} />
+        <ArrowButton onClick={() => handleArrow("right")} />
       </div>
-      <div className="clickable-gallery-content" ref={contentRef}>
-        {extendedItems.map((child, idx) => {
-          const isSelected = idx === currentIndex;
-          return (
-            <div
-              className={`clickable-gallery-item${
-                isSelected ? " selected" : ""
-              }`}
-              key={idx}
-              ref={(el) => {
-                itemRefs.current[idx] = el;
-              }}
-              style={{ opacity: isSelected ? 1 : 0.5, pointerEvents: "auto" }}
-            >
-              {child}
-            </div>
-          );
-        })}
+      <div
+        className={`clickable-gallery-content custom-gallery-content${
+          isAnimating && direction ? ` animating-${direction}` : ""
+        }`}
+      >
+        {galleryItems.map(({ idx, pos }) => (
+          <div
+            key={idx}
+            className={`custom-gallery-item ${pos}${
+              pos === "center" ? " selected" : ""
+            }`}
+            style={{
+              opacity: pos === "center" ? 1 : 0.5,
+              pointerEvents: pos === "center" ? "auto" : "none",
+            }}
+          >
+            {items[idx]}
+          </div>
+        ))}
       </div>
     </div>
   );
